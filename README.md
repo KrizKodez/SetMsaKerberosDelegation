@@ -1,23 +1,26 @@
 ![MSAD](https://img.shields.io/badge/Active_Directory_Domain_Services-blue) ![PowerShell](https://img.shields.io/badge/Powershell-5391FE?style=flat&logo=powershell&logoColor=white) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green)](https://www.gnu.org/licenses/gpl-3.0)
 
-# Managed Service Accounts Kerberos Delegation
+# Managed Service Account (MSA) Kerberos Delegation
 This repository contains a PowerShell script which provides a GUI to manage the attributes relevant for the Kerberos Delegation mechanism more comfortably.
 
 ## Motivation
 It's been obvious for years that Microsoft has seriously neglected other management tools because of its focus on the cloud. For example, in the ADAC created back in 2012, you can create FGPPs or Authentication Silos, but you still have to manually create NTDS Quotas. Likewise, the long-existing Managed Service Accounts are basically ignored in ADAC, and you can't set Kerberos delegation settings there.
 For standard user accounts with SPN and computer accounts, there is a 'Delegation' tab in the Users and Computers (ADUC) Snap-In:
+<p align="center" width="100%">
 <img width="423" height="563" alt="StandardAccountDelegationTab" src="https://github.com/user-attachments/assets/38a06781-c82b-42f2-aaac-7bce30910b73" />
+</p>
 
 But not like that for MSAs. To help with this a bit, this PowerShell script provides a simple recreation of this 'Delegation' tab.
-<img width="443" height="545" alt="ScriptDialog" src="https://github.com/user-attachments/assets/102972fd-a8f1-46bd-bcf8-3f3187fa9f74" />
 
 ## Installation and Use
-No installation needed, download both files, the .ps1 and the .lib.ps1 to the same directory and run the Set-MsaKerberosDelegation.ps1 script. With the parameter -Identity you could submit the desired MSA:
+No installation is needed, download both files, the .ps1 and the .lib.ps1 to the same directory and run the Set-MsaKerberosDelegation.ps1 script. With the parameter -Identity you could submit the desired MSA:
 ````PowerShell
 .\Set-MsaKerberosDelegation.ps1 -Identity 'testmsa'
 ````
-The script reads the current Kerberos delegation setting and displays them in the GUI:
-
+The script reads the current Kerberos delegation settings and displays them in the GUI:
+<p align="center" width="100%">
+<img width="443" height="545" alt="ScriptDialog" src="https://github.com/user-attachments/assets/102972fd-a8f1-46bd-bcf8-3f3187fa9f74" />
+</p>
 
 After closing the dialog with the OK button, a confirmation prompt appears where you can still cancel the operation.
 ````
