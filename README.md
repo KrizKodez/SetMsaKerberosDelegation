@@ -6,9 +6,10 @@ This repository contains a PowerShell script which provides a GUI to manage the 
 ## Motivation
 It's been obvious for years that Microsoft has seriously neglected other management tools because of its focus on the cloud. For example, in the ADAC created back in 2012, you can create FGPPs or Authentication Silos, but you still have to manually create NTDS Quotas. Likewise, the long-existing Managed Service Accounts are basically ignored in ADAC, and you can't set Kerberos delegation settings there.
 For standard user accounts with SPN and computer accounts, there is a 'Delegation' tab in the Users and Computers (ADUC) Snap-In:
-
+<img width="423" height="563" alt="StandardAccountDelegationTab" src="https://github.com/user-attachments/assets/38a06781-c82b-42f2-aaac-7bce30910b73" />
 
 But not like that for MSAs. To help with this a bit, this PowerShell script provides a simple recreation of this 'Delegation' tab.
+<img width="443" height="545" alt="ScriptDialog" src="https://github.com/user-attachments/assets/102972fd-a8f1-46bd-bcf8-3f3187fa9f74" />
 
 ## Installation and Use
 No installation needed, download both files, the .ps1 and the .lib.ps1 to the same directory and run the Set-MsaKerberosDelegation.ps1 script. With the parameter -Identity you could submit the desired MSA:
