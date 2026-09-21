@@ -4,7 +4,7 @@
 This repository contains a PowerShell script which provides a GUI to manage the attributes relevant for the Kerberos Delegation mechanism more comfortably.
 
 ## Motivation
-It's been obvious for years that Microsoft has seriously neglected other management tools because of its focus on the cloud. For example, in the ADAC created back in 2012, you can create FGPPs or Authentication Silos, but you still have to manually create NTDS quotas. Likewise, the long-existing Managed Service Accounts are basically ignored in ADAC, and you can't set Kerberos delegation settings there.
+It's been obvious for years that Microsoft has seriously neglected other management tools because of its focus on the cloud. For example, in the ADAC created back in 2012, you can create FGPPs or Authentication Silos, but you still have to manually create NTDS Quotas. Likewise, the long-existing Managed Service Accounts are basically ignored in ADAC, and you can't set Kerberos delegation settings there.
 For standard user accounts with SPN and computer accounts, there is a 'Delegation' tab in the Users and Computers (ADUC) Snap-In:
 
 
@@ -15,9 +15,15 @@ No installation needed, download both files, the .ps1 and the .lib.ps1 to the sa
 ````PowerShell
 .\Set-MsaKerberosDelegation.ps1 -Identity 'testmsa'
 ````
+The script reads the current Kerberos delegation setting and displays them in the GUI:
 
 
-
+After closing the dialog with the OK button, a confirmation prompt appears where you can still cancel the operation.
+````
+PS C:\Data> .\Set-MsaKerberosDelegation.ps1 -identity testmsa
+Do you want to write the new delegation settings?
+Enter [Y] for OK or [N] for Cancel:
+````
 
 ## Contributing
 All PowerShell developers or Active Directory experts are very welcome to help and make the code better, more readable or contribute new ideas. 
